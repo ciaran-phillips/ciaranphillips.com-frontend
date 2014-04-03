@@ -1,0 +1,32 @@
+<div id="post-page">
+	<header>
+		
+		<nav>
+			<h1><a href="/dist/#/">Consequentialist Code</a></h1>
+			<ul>
+				<li id="mobile-home-icon"><a href="/dist/#/"><i class="fa fa-home"></i> Home</a></li>
+				<li ><a href="/dist/#/post/{{post[0].prev}}"><i class="fa fa-caret-left"></i> Previous</a></li>
+				<li ><a href="/dist/#/post/{{post[0].next}}"><i class="fa fa-caret-right"></i> Next</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section id="blog">
+		
+		<div>
+			
+			<div  class="posts">
+				<article >
+					<h1>{{ post[0].title }}</h1>
+					
+					<div ng-bind-html="to_trusted(post[0].html)">
+					
+					</div>
+					<div class="meta">
+						Posted: {{ post[0].created }}
+					</div>
+					
+				</article>
+			</div>
+		</div>
+	</section>
+</div>

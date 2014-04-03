@@ -1,0 +1,109 @@
+<header>
+	<nav>
+		<ul>
+			<li scroll-to="content" class="active"><i class="fa fa-home"></i> Home</li>
+			<li scroll-to="blog"><i class="fa fa-pencil-square-o"></i> Blog</li>
+			<li scroll-to="projects"><i class="fa fa-gear"></i> Work</li>
+			<li scroll-to="about"><i class="fa fa-user"></i> About me</li>
+		</ul>
+	</nav>
+</header>
+<section>
+<div id="content">
+	<div id="logo">
+		<h1>Consequentialist Code</h1>
+		<span class="tagline">The musings of an Irish web developer and pragmatic idealist</span>
+	</div>
+	<p class="intro">Hi! My name is Ciarán Phillips. I'm an Irish web developer who gets irrationally excited by new web 
+		technologies. Currently messing around with Rails, Yeoman, SASS/Compass and Angularjs.
+	</p>
+	<h2>The latest thing I've written is:</h2>
+	
+	<article>
+		<h3>{{post[0].title}}</h3>
+		<div ng-bind-html="to_trusted(post[0].html)">
+			
+		</div>
+		<p class="read-more">
+			<a href="/dist/#/post/{{post[0].slug}}">Read full post</a>
+		</p>
+		<div class="meta">
+			{{ post[0].created }}
+		</div>
+	</article>
+</div>
+</section>
+<section id="blog">
+	<div>
+		<h1>Blog</h1>
+		
+		<div  class="posts">
+			<div ng-repeat="p in posts" ng-click="go('/post/' + p.slug)" class="post" >
+				<div>
+					<h3>{{ p.title }}</h3>
+					<div ng-bind-html="to_trusted(p.html)">
+					</div>
+					<p class="read-more">
+						<a href="/dist/#/post/{{p.slug}}">Read full post</a>
+					</p>
+					<div class="meta">
+						{{ p.created }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="projects">
+	<div>
+		<h1>Projects</h1>
+		<p class="intro">This is a collection of random things I've been working since leaving college last year, and 
+			is all stuff done outside of work, so they're in varying stages of completion/prettiness.</p>
+		<div flexslider class="flexslider">
+			<ul class="slides">
+				<li class="project" on-finish-render ng-repeat="proj in projects">
+					<h3>{{proj.title}}</h3>
+					<div>
+						<div class="project-meta">
+							<img src="/cms/content/img/{{proj.image}}" />
+						</div>
+						<div ng-bind-html="to_trusted(proj.body)" class="project-details">
+							
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section id="about">
+	<div>
+		<h1>About</h1>
+		<p>
+  I'm an Irish web developer, mediocre musician, and graduate of a rather odd degree called Music, Media and Performance Technology in University of Limerick. 
+  I never really worked out what that degree is meant to prepare me for, but I do know that I got to spend a lot of time doing cool things, and somehow
+  had a job at the end of it. So I guess that's a success! 
+  </p>
+  <p>
+   You can generally find me messing around with some half-finished project on my laptop, 
+  playing guitar/piano with friends, giving a hastily prepared speech at Toastmasters, or just 
+chatting about nerdy stuff in <a href="http://091labs.com">091 Labs</a> (Galway's best and only hackerspace!). 
+  
+	</p>
+	
+	<p>
+		In April 2013 I signed a pledge to donate at least 10% of my income to the <a href="http://givingwhatwecan.org/">most effective charities</a>, and
+		am a firm believer that if you're going to spend resources trying to make the world a better place, you may as well
+		try and get the most bang for your buck! I don't talk about that the do-gooder stuff much in person, because I usually
+		feel like a bit of an ass when I do. If you're interested though, I'm more than happy to chat!
+	</p>
+	<p>
+		This site is created in Angularjs, with a little JSON API hacked on to the front of the Anchor CMS blogging platform
+		(which I was using to power the blog before I redid the frontend in Angular). I hope to 
+		replace that soon with a new backend in Ruby or Python.
+	</p>
+	<p>
+		I'm on <a href="https://github.com/ciaran-phillips">Github</a> and <a href="http://ie.linkedin.com/in/ciaranphillips/">Linkedin</a>
+	</p>
+	</div>
+</section>
